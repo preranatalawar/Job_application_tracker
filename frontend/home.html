@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Tracker</title>
+
+<style>
+
+body {
+  margin:0;
+  font-family:'Segoe UI';
+  background: linear-gradient(135deg,#0a1f44,#1e3a8a,#2563eb);
+  height:100vh;
+  color:white;
+}
+
+/* HERO SECTION */
+.hero {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* MAIN CARD */
+.hero-box {
+  width:900px;
+  padding:60px;
+  border-radius:20px;
+
+  background: linear-gradient(145deg, rgba(59,130,246,0.15), rgba(30,64,175,0.25));
+  backdrop-filter: blur(20px);
+
+  border:1px solid rgba(147,197,253,0.3);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  text-align:center;
+}
+
+/* TITLE */
+.hero-box h1 {
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+/* SUBTEXT */
+.hero-box p {
+  color:#cbd5f5;
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+.hero-box button {
+  padding:14px 30px;
+  font-size:16px;
+
+  background: linear-gradient(90deg,#6366f1,#3b82f6);
+  border:none;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.hero-box button:hover {
+  transform:scale(1.05);
+}
+
+/* EXTRA SMALL TEXT */
+.features {
+  margin-top:30px;
+  font-size:14px;
+  color:#93c5fd;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="hero-box">
+
+    <h1>Job Application Tracker</h1>
+    <p>Track, manage, and organize all your job applications in one place</p>
+
+    <button onclick="goLogin()">Get Started</button>
+
+    <div class="features">
+      Track status • Add notes • Manage interviews • Stay organized
+    </div>
+
+  </div>
+</div>
+
+<script>
+function goLogin(){
+  window.location.href="/login";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0a1f44,#1e3a8a,#2563eb);
+  background-attachment: fixed;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#registerBox {
+  width: 800px;
+  height: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+
+  background: rgba(59,130,246,0.15);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(147,197,253,0.3);
+
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+input {
+  width: 90%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  width: 50%;
+  padding: 14px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-text {
+  margin-top: 15px;
+}
+
+.login-text span {
+  color: #93c5fd;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="registerBox">
+  <h2>Create Account</h2>
+
+  <input id="name" placeholder="Full Name">
+<input id="username" placeholder="Username">
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<input id="confirm" type="password" placeholder="Confirm Password">
+  <button onclick="register()">Register</button>
+
+  <div class="login-text">
+    Already have account?
+    <span onclick="goLogin()">Login</span>
+  </div>
+</div>
+
+<script>
+function register(){
+
+  const name = document.getElementById("name").value.trim();
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirm").value;
+
+  // empty check
+  if(!name || !username || !email || !password || !confirm){
+    alert("Fill all fields");
+    return;
+  }
+
+  // password match
+  if(password !== confirm){
+    alert("Passwords do not match");
+    return;
+  }
+
+  // save locally (simple)
+  localStorage.setItem("user", JSON.stringify({
+    name, username, email, password
+  }));
+
+  // redirect
+  window.location.href="/login";
+}
+
+function goLogin(){
+  window.location.href="/login";
+}
+</script>
+
+</body>
+</html>
